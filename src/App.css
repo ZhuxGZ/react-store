@@ -30,6 +30,11 @@ header {
 	gap: 1em;
 }
 
+.card-container-rows {
+	grid-template-rows: auto;
+	grid-template-columns: 100%;
+}
+
 .card {
 	display: grid;
 	width: 25em;
@@ -39,8 +44,15 @@ header {
 	border-radius: 1em;
 }
 
-.card-info {
-	display: grid;
+.card-cols {
+	align-items: start;
+	width: 100%;
+	gap: 1em;
+	grid-template-columns: 20% 20% 30% 5%;
+}
+
+.card-cols .card-title {
+	font-size: large;
 }
 
 .card-img {
@@ -75,12 +87,12 @@ header {
 	margin-top: 1em;
 	display: flex;
 	justify-content: center;
-	align-items: baseline;
+	align-items: flex-end;
 	gap: 1em;
 	width: 100%;
 }
 
-.card-buttons button {
+.button {
 	height: 3.5em;
 	box-sizing: border-box;
 	width: 45%;
@@ -90,12 +102,40 @@ header {
 	cursor: pointer;
 }
 
-.card-addtocart {
+.success {
 	background-color: rgb(91, 196, 91);
 	color: whitesmoke;
 }
 
-.card-recommendation {
+.secondary {
 	background-color: rgb(138, 138, 224);
 	color: whitesmoke;
+}
+
+.circle {
+	display: grid;
+	place-content: center;
+	background: white;
+	width: 15em;
+	border-radius: 50%;
+}
+
+.circle .card {
+	border-radius: 50%;
+	width: 13em;
+	height: 13em;
+	overflow: hidden;
+	transition: all linear 0.2s;
+	margin: 0 !important;
+}
+
+.circle .card:hover {
+	border-radius: 1em;
+	width: 25em;
+	height: fit-content;
+}
+
+.circle img {
+	object-fit: contain;
+	object-position: center;
 }

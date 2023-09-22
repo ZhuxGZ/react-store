@@ -1,5 +1,3 @@
-import { Children } from 'react';
-
 function Navbar() {
 	return (
 		<nav>

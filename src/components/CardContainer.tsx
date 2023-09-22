@@ -1,21 +1,19 @@
-import { useEffect, useState } from 'react';
 import { Card } from './Card';
-import { APIResponse } from '../types/APIResponse';
+import { Product } from '../types/APIResponse';
 
-function CardContainer() {
-	const [products, setProducts] = useState<APIResponse>();
+interface CardContainerProps {
+	inRow?: boolean;
+	products: Product[];
+}
 
-	useEffect(() => {
-		fetch('https://fakestoreapi.com/products')
-			.then((response) => response.json())
-			.then((data: APIResponse) => setProducts(data));
-	}, []);
+function CardContainer({ inRow, products }: CardContainerProps) {
 	return (
-		<section className="card-container">
+		<section className={`card-container ${inRow ? 'card-container-rows' : ''}`}>
 			{products &&
-				products.map((product: APIResponse) => {
+				products.map((product) => {
 					return (
 						<Card
+							inRow={inRow}
 							key={product.id}
 							image={product.image}
 							title={product.title}

@@ -1,4 +1,4 @@
-export interface APIResponse {
+export interface Product {
 	id: number;
 	title: string;
 	price: number;
@@ -23,11 +23,11 @@ export interface Rating {
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
-	public static toAPIResponse(json: string): APIResponse[] {
+	public static toAPIResponse(json: string): Product[] {
 		return cast(JSON.parse(json), a(r('APIResponse')));
 	}
 
-	public static aPIResponseToJson(value: APIResponse[]): string {
+	public static aPIResponseToJson(value: Product[]): string {
 		return JSON.stringify(uncast(value, a(r('APIResponse'))), null, 2);
 	}
 }
